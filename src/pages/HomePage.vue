@@ -1,10 +1,9 @@
 <script>
-import HelloWorld from '@/components/HelloWorld.vue';
+
 import BaseButton from '@/components/BaseButton.vue';
 
 export default {
     components: {
-        HelloWorld,
         BaseButton
     },
     provide: {
@@ -34,7 +33,6 @@ export default {
 <template>
     <main>
         <section class="d-flex">
-            <HelloWorld class="msg" :msg="message" :theme="'dangersss'" />
             <img class="base-button"  src="../assets/images/components.png" />
         </section>
     </main>
