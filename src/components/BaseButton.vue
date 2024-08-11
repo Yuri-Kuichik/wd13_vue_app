@@ -1,22 +1,24 @@
 <template>
-    <button @click="click">
-        {{ textButtonDefault }}
-    </button>  
+    <button>
+        {{ textButton}}
+    </button>
 </template>
 
 <script>
 export default {
+    props: {
+      textButton: {
+        type: String,
+        default: 'click me'
+      }
+    },
+
     data() {
         return {
-            textButtonDefault: 'Click me'
+            textButtonDefault: this.textButton
         }
     },
 
-    methods: {
-        click() {
-            this.$emit()
-        }
-    }
 }
 </script>
 

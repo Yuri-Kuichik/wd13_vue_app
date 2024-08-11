@@ -4,7 +4,7 @@ import BaseButton from '@/components/BaseButton.vue';
 
 export default {
     components: {
-        BaseButton
+        BaseButton,
     },
     provide: {
         message: 'привет!'
@@ -13,16 +13,19 @@ export default {
         return {
             customMessage: 'Hello from Home page!!!',
             searchText: 'search',
-            num: 4,
             res: false,
             count: 0,
-            textButton: 'Click me'
-        } 
+            textButton: 'Click me',
+        }
     },
     methods: {
-        increaseCount(num) {
-            this.count += num
+        handleIncreaseClick() {
+            this.count += 1;
         },
+        handleDecreaseClick() {
+            this.count -= 1;
+        },
+
         clickOnButtonComponent() {
             console.log('clickOnButtonComponent');
         }
@@ -33,22 +36,25 @@ export default {
 <template>
     <main>
         <section class="d-flex">
-            <img class="base-button"  src="../assets/images/components.png" />
+            <BaseButton text-button="increase" @click="handleIncreaseClick"></BaseButton>
+            <BaseButton text-button="decrease" @click="handleDecreaseClick"></BaseButton>
+
+            <p>Counter: {{ count }}</p>
+            <img class="base-button" src="../assets/images/components.png"/>
         </section>
     </main>
 </template>
 
 <style scoped>
-    section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        max-width: 100%;
-        gap: 2rem;
-    }
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    gap: 2rem;
+}
 
-    section img {
-        max-width: 50%;
-    } 
-
+section img {
+    max-width: 50%;
+}
 </style>
