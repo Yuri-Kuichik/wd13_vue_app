@@ -1,5 +1,5 @@
 <template>
-    <button @click="click">
+    <button>
         {{ textButtonDefault }}
     </button>  
 </template>
@@ -21,5 +21,6 @@ export default {
 </script>
 
 <style scoped>
+
 
 </style>
