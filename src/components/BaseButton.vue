@@ -1,26 +1,13 @@
 <template>
     <button>
-        {{ textButtonDefault }}
-    </button>  
+        <slot />
+    </button>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            textButtonDefault: 'Click me'
-        }
-    },
 
-    methods: {
-        click() {
-            this.$emit()
-        }
-    }
 }
 </script>
 
-<style scoped>
-
-
-</style>
+<style scoped></style>
