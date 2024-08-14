@@ -26,6 +26,8 @@
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
+  --color-background-header: #eee;
+  --color-background-footer: #eee;
 
   --color-border: var(--vt-c-divider-light-2);
   --color-border-hover: var(--vt-c-divider-light-1);
@@ -59,7 +61,6 @@
 }
 
 body {
-  min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
   transition:
@@ -79,12 +80,8 @@ body {
     'Droid Sans',
     'Helvetica Neue',
     sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-main {
-  margin-top: 3rem;
 }

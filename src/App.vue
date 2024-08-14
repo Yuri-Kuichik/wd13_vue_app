@@ -1,25 +1,22 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
-import NavBar from './components/NavBar.vue';
+import AppHeader from './components/AppHeader.vue';
+import AppFooter from './components/AppFooter.vue';
 
 export default {
   components: {
-    NavBar
-  },
-  data() {
-    return {
-
-    }
+    AppHeader,
+    AppFooter
   }
 }
 </script>
 
 <template>
-  <NavBar></NavBar>
-
+  <AppHeader />
   <main>
     <RouterView />
   </main>
+  <AppFooter />
 </template>
 
 

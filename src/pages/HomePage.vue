@@ -1,7 +1,9 @@
 <script>
+import BaseLayout from '@/components/BaseLayout.vue';
+
 export default {
     components: {
-    
+        BaseLayout
     },
 
     provide: {
@@ -21,22 +23,13 @@ export default {
 </script>
 
 <template>
-    <section class="d-flex">
-
-    </section>
+    <BaseLayout>
+        <div class="d-flex d-flex_jcc">
+            <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+        </div>
+    </BaseLayout>
 </template>
 
 <style scoped>
-    section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 1280px;
-        gap: 2rem;
-    }
-
-    section img {
-        max-width: 50%;
-    } 
-
+    
 </style>
