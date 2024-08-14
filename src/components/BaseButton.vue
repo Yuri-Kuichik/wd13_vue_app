@@ -1,7 +1,12 @@
 <template>
     <button>
+
         {{ textButton}}
     </button>
+
+        {{ textButtonDefault }}
+    </button>  
+
 </template>
 
 <script>
@@ -23,5 +28,6 @@ export default {
 </script>
 
 <style scoped>
+
 
 </style>

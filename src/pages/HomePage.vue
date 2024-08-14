@@ -1,16 +1,19 @@
 <script>
-
-import BaseButton from '@/components/BaseButton.vue';
-
 export default {
     components: {
+
         BaseButton,
+    
+
     },
+
     provide: {
         message: 'привет!'
     },
+
     data() {
         return {
+
             customMessage: 'Hello from Home page!!!',
             searchText: 'search',
             res: false,
@@ -36,8 +39,14 @@ export default {
                     return 0;
             }
         }
+
+            
+        } 
+
     },
+
     methods: {
+
         handleIncreaseClick() {
             this.count += 1;
         },
@@ -48,11 +57,15 @@ export default {
         clickOnButtonComponent() {
             console.log('clickOnButtonComponent');
         }
+
+       
+
     }
 }
 </script>
 
 <template>
+
     <main>
         <section class="d-flex">
             <BaseButton text-button="increase" @click="handleIncreaseClick"></BaseButton>
@@ -79,6 +92,25 @@ section {
     max-width: 100%;
     gap: 2rem;
 }
+
+    <section class="d-flex">
+
+    </section>
+</template>
+
+<style scoped>
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 1280px;
+        gap: 2rem;
+    }
+
+    section img {
+        max-width: 50%;
+    } 
+
 
 section img {
     max-width: 50%;
