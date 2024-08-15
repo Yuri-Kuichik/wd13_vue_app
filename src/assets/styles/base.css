@@ -35,6 +35,10 @@
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
 
+  --color-primary: #0075ff;
+  --color-secondary: #F23B6F;
+  --colors-error: #FF4444;
+
   --section-gap: 160px;
 }
 

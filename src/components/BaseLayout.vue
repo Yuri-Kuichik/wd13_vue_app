@@ -4,14 +4,16 @@
     </section>
 </template> -->
 
-
-
 <script>
 import { h } from 'vue'
 
 export default {
   render() {
-    return h('section', {class: 'base-layout'}, this.$slots.default() )
+    return h(
+      'section', // имя тега
+      {class: 'base-layout'}, // входные параметры/атрибуты
+      this.$slots.default() // массив дочерних элементов
+    )
   }
 }
 </script>
