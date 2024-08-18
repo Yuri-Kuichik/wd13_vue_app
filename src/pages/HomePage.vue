@@ -1,9 +1,13 @@
 <script>
 import BaseLayout from '@/components/BaseLayout.vue';
+import SignInForm from "@/components/SignInForm.vue";
+import RegistrationForm from "@/components/RegistrationForm.vue";
 
 export default {
     components: {
-        BaseLayout
+        BaseLayout,
+        SignInForm,
+        RegistrationForm
     },
 
     provide: {
@@ -12,17 +16,20 @@ export default {
 
     data() {
         return {
-            
-        } 
+
+        }
     },
 
     methods: {
-       
+
     }
 }
 </script>
 
 <template>
+    <SignInForm></SignInForm>
+    <RegistrationForm></RegistrationForm>
+
     <BaseLayout>
         <div class="d-flex d-flex_jcc">
             <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
@@ -31,5 +38,5 @@ export default {
 </template>
 
 <style scoped>
-    
+
 </style>
