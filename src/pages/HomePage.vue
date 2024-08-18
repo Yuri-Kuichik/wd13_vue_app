@@ -2,12 +2,14 @@
 import BaseLayout from '@/components/BaseLayout.vue';
 import SignInForm from "@/components/SignInForm.vue";
 import RegistrationForm from "@/components/RegistrationForm.vue";
+import AuthSwitcher from "@/components/AuthSwitcher.vue";
 
 export default {
     components: {
         BaseLayout,
         SignInForm,
-        RegistrationForm
+        RegistrationForm,
+        AuthSwitcher
     },
 
     provide: {
@@ -27,8 +29,7 @@ export default {
 </script>
 
 <template>
-    <SignInForm></SignInForm>
-    <RegistrationForm></RegistrationForm>
+    <AuthSwitcher></AuthSwitcher>
 
     <BaseLayout>
         <div class="d-flex d-flex_jcc">
