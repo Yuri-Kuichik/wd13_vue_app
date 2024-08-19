@@ -1,11 +1,15 @@
 <script>
 import BaseLayout from '@/components/BaseLayout.vue';
-import FormSwitcher from "@/components/FormSwitcher.vue";
+import SignInForm from "@/components/SignInForm.vue";
+import RegistrationForm from "@/components/RegistrationForm.vue";
+import AuthSwitcher from "@/components/AuthSwitcher.vue";
 
 export default {
     components: {
         BaseLayout,
-        FormSwitcher
+        SignInForm,
+        RegistrationForm,
+        AuthSwitcher
     },
 
     provide: {
@@ -25,8 +29,9 @@ export default {
 </script>
 
 <template>
+    <AuthSwitcher></AuthSwitcher>
+
     <BaseLayout>
-        <FormSwitcher></FormSwitcher>
         <div class="d-flex d-flex_jcc">
             <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
         </div>

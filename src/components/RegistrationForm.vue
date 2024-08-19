@@ -1,6 +1,6 @@
 
 <template>
-    <form @submit.prevent="getRegisterData()" class="register-container">
+    <form @submit.prevent="getRegisterData()" class="register-form">
         <input
             type="text"
             v-model="userName"
@@ -29,9 +29,7 @@
             required
             class="input-field"
         />
-        <button type="submit" :disabled="isDisabled" class="submit-button">
-            Submit
-        </button>
+        <button type="submit" :disabled="isDisabled" class="submit-button">Submit</button>
     </form>
 </template>
 
@@ -85,7 +83,7 @@ export default {
 </script>
 
 <style scoped>
-.register-container {
+.register-form {
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -95,7 +93,6 @@ export default {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
 .input-field {
     margin-bottom: 15px;
     padding: 10px;
@@ -105,7 +102,6 @@ export default {
     width: 100%;
     box-sizing: border-box;
 }
-
 .submit-button {
     padding: 10px 15px;
     background-color: #42b983;
@@ -115,14 +111,11 @@ export default {
     font-size: 16px;
     cursor: pointer;
 }
-
 .submit-button:disabled {
     background-color: #c4c4c4;
     cursor: not-allowed;
 }
-
 .submit-button:hover:not(:disabled) {
     background-color: #36a973;
 }
-
 </style>
