@@ -1,6 +1,6 @@
 <template>
   <input type="number" :value="modelValue"
-         @input="$emit('update:modelValue', $event.target.value)">
+         @input="$emit('update:modelValue', Number($event.target.value))">
 </template>
 
 <script>

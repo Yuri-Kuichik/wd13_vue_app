@@ -37,10 +37,10 @@ export default {
   computed: {
     result() {
       if (this.operator === 'sum') {
-        return Number(this.countFirst) + Number(this.countSecond)
+        return this.countFirst + this.countSecond
       }
       if (this.operator === 'subtract') {
-        return Number(this.countFirst) - Number(this.countSecond)
+        return this.countFirst - this.countSecond
       }
       if (this.operator === 'multiply') {
         return this.countFirst * this.countSecond
