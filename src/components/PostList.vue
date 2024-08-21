@@ -64,7 +64,7 @@ export default {
             this.loading = true
 
             try {
-                const response = await this.postStore.getList(this.limitPosts, this.searchString);
+                const response = await this.postStore.getList(this.limitPosts, this.searchString, this.courseGroupId);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
