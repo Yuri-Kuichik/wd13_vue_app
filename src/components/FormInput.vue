@@ -1,3 +1,27 @@
+<template>
+    <div class="form-input" :class="{'form-input_password': passwordField, 'js--error': isErorr}">
+        <div class="form-input-wrapper">
+            <label :for="name">{{ label }}</label>
+            <input 
+                :value="modelValue"
+                @input="$emit('update:modelValue', $event.target.value)"
+                :type="type" 
+                :id="name"
+                :placeholder="placeholder"
+            >
+     
+            <button v-if="passwordField" type="button" @click="$emit('switchType')">
+                <span class="icon-wrapper">
+                    <IconShow v-if="type === 'text'"/>
+                    <IconHide v-else/>
+                </span>
+            </button>  
+        </div>
+        
+        <span class="form-input__error"> {{ errorMessage }} </span>
+    </div>
+</template>
+
 <script>
 import IconHide from '@/assets/icons/IconHide.vue';
 import IconShow from '@/assets/icons/IconShow.vue';
@@ -47,30 +71,6 @@ export default {
 }
 
 </script>
-
-<template>
-    <div class="form-input" :class="{'form-input_password': passwordField, 'js--error': isErorr}">
-        <div class="form-input-wrapper">
-            <label :for="name">{{ label }}</label>
-            <input 
-                :value="modelValue"
-                @input="$emit('update:modelValue', $event.target.value)"
-                :type="type" 
-                :id="name"
-                :placeholder="placeholder"
-            >
-     
-            <button v-if="passwordField" type="button" @click="$emit('switchType')">
-                <span class="icon-wrapper">
-                    <IconShow v-if="type === 'text'"/>
-                    <IconHide v-else/>
-                </span>
-            </button>  
-        </div>
-        
-        <span class="form-input__error"> {{ errorMessage }} </span>
-    </div>
-</template>
 
 <style scoped>
 

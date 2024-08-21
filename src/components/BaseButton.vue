@@ -1,5 +1,5 @@
 <template>
-    <button>
+    <button class="base-batton" :class="rootClass">
         <VueSpinner v-if="loading" />
         <span v-else>
             {{ textButton }}
@@ -20,41 +20,59 @@ export default {
             type: String,
             default: 'Click me'
         },
+        size: {
+            type: String,
+            default: 'm'
+        },
         loading: {
             type: Boolean,
             default: false
         }
     },
 
-    methods: {
-        click() {
-            this.$emit()
+    computed: {
+        rootClass() {
+            return {
+                [`base-batton_size--${this.size}`]: true
+            }
         }
     }
 }
 </script>
 
 <style scoped>
-button {
+.base-batton {
     display: flex;
     flex-grow: 1;
     align-items: center;
     justify-content: center;
+    padding: 0 12px;
     background: rgb(253, 211, 42);
-    /* background: var(--color-primary); */
-    /* color: var(--color-text); */
     color: rgb(7, 7, 7);
     border-radius: 8px;
     font-size: 16px;
     line-height: 24px;
     font-weight: 600;
-    width: 100%;
+    max-width: 100%;
     height: 48px;
 }
 
-button:hover {
-        opacity: 0.9;
-    }
+.base-batton:hover {
+    opacity: 0.9;
+}
+
+.base-batton_size--s {
+    height: 24px;
+}
+
+.base-batton_size--m {
+    height: 36px;
+}
+
+.base-batton_size--l {
+    padding: 0 16px;
+    height: 48px;
+}
 
 
 </style>

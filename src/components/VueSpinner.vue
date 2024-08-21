@@ -1,5 +1,5 @@
 <template>
-    <svg class="sh-spinner" :class="{[`sh-spinner_size--${size}`]: true}"  viewBox="0 0 24 24" fill="none">
+    <svg class="vue-spinner" :class="rootClass"  viewBox="0 0 24 24" fill="none">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3a9 9 0 1 0 9 9h2A11 11 0 1 1 12 1v2Z" fill="#ffffff" />
     </svg>
 </template>
@@ -11,13 +11,21 @@ export default {
             type: String,
             default: 's'
         }
+    },
+
+    computed: {
+        rootClass() {
+            return {
+                [`vue-spinner_size--${this.size}`]: true
+            }
+        }
     }
 }
 
 </script>
 
 <style scoped>
-.sh-spinner {
+.vue-spinner {
     animation: spinner 0.7s infinite linear;
     transform-origin: center;  
 }
@@ -32,17 +40,17 @@ export default {
     }
 }
 
-.sh-spinner_size--s {
+.vue-spinner_size--s {
     height: 24px;
     width: 24px;
 }
 
-.sh-spinner_size--m {
+.vue-spinner_size--m {
     height: 36px;
     width: 36px;
 }
 
-.sh-spinner_size--l {
+.vue-spinner_size--l {
     height: 48px;
     width: 48px;
 }

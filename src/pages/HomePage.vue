@@ -1,9 +1,13 @@
 <script>
 import BaseLayout from '@/components/BaseLayout.vue';
+import PostList from '@/components/PostList.vue';
+import VueCalculator from '@/components/VueCalculator.vue';
 
 export default {
     components: {
-        BaseLayout
+        BaseLayout,
+        PostList,
+        VueCalculator
     },
 
     provide: {
@@ -15,18 +19,16 @@ export default {
             
         } 
     },
-
-    methods: {
-       
-    }
 }
 </script>
 
 <template>
     <BaseLayout>
-        <div class="d-flex d-flex_jcc">
+        <PostList />
+
+        <!-- <div class="d-flex d-flex_jcc">
             <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-        </div>
+        </div> -->
     </BaseLayout>
 </template>
 

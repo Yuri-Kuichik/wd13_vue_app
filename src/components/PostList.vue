@@ -1,15 +1,21 @@
 <template>
     <h2>{{ title }}</h2>
 
-    <input v-model="searchString" placeholder="Search posts..."/>
-    <BaseButton @click="getPosts">Search</BaseButton>
+    <div class="search-wrapper">
+        <BaseInput v-model="searchString" placeholder="Search posts..."/>
+        <BaseButton class="search-btn" @click="getPosts" text-button="Search" size="l" />
+    </div>
 
     <div v-if="loading" class="loader"></div>
     <div v-else class="posts-list">
 
-        <section v-if="posts.length">
-            <div v-for="post in posts" :key="'post-id_' + post.id">
-                <PostListItem :model="post"></PostListItem>
+        <section v-if="postList.length">
+            <div v-for="post in postList" :key="'post-id_' + post.id">
+                <PostListItem 
+                    class="post-list-item" 
+                    @click="openPostPage(post.id)" 
+                    :model="post"
+                />
             </div>
         </section>
         <div v-else>Ничего не найдено</div>
@@ -19,23 +25,29 @@
 </template>
 
 <script>
+import { usePostsStore } from '@/stores/posts';
+
+import BaseInput from './BaseInput.vue';
 import BaseButton from './BaseButton.vue';
 import PostListItem from './PostListItem.vue';
-
+ 
 export default {
     components: {
+        BaseInput,
         BaseButton,
         PostListItem
     },
 
     data() {
         return {
-            title: 'Posts lists',
-            posts: [],
-            searchString: '',
             loading: false,
+            postListData: {},
+            postList: [],
+            title: 'Posts list',
+            searchString: '',
             limitPosts: 5,
             courseGroupId: 12,
+            postStore: usePostsStore(),
         }
     },
 
@@ -44,26 +56,40 @@ export default {
     },
 
     methods: {
+        openPostPage(postId) {
+            this.$router.push({name: 'post', params: {id: postId}})
+        },
+
         async getPosts() {
             this.loading = true
-            this.posts =  await fetch(`https://studapi.teachmeskills.by/blog/posts/?author__course_group=${10+2}&limit=${this.limitPosts}&search=${this.searchString}`)
-                .then((response) => {
-                    if (response.ok) {
-                        return response.json()
-                    } else {
-                        this.loading = false
-                        alert("Ошибка HTTP: " + response.status);
-                    }
-                }).then((data) => {
-                    this.loading = false
-                    return data.results
-                })
+
+            try {
+                const response = await this.postStore.getList(this.limitPosts, this.searchString);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                this.postListData = await response.json();
+                this.postList = this.postListData?.results;
+            } catch(error) {
+                console.log(error.message)
+            } finally {
+                this.loading = false;
+            }
         }
     },
 }
 </script>
 
 <style scoped>
+.search-wrapper {
+    display: flex;
+    gap: 1rem;
+    margin: 0.5rem 0 1rem;
+}
 
+.post-list-item {
+    cursor: pointer;
+}
 
 </style>
