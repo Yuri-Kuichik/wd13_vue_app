@@ -1,5 +1,5 @@
 <template>
-    <button class="base-batton" :class="rootClass">
+    <button class="base-batton" :class="rootClass" @click="click">
         <VueSpinner v-if="loading" />
         <span v-else>
             {{ textButton }}
@@ -11,10 +11,10 @@
 import VueSpinner from './VueSpinner.vue';
 
 export default {
-    components: { 
-        VueSpinner 
+    components: {
+        VueSpinner
     },
-    
+
     props: {
         textButton: {
             type: String,
@@ -35,6 +35,12 @@ export default {
             return {
                 [`base-batton_size--${this.size}`]: true
             }
+        }
+    },
+
+    methods: {
+        click() {
+            this.$emit('someClick')
         }
     }
 }
