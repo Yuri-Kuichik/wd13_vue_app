@@ -1,5 +1,5 @@
 <template>
-    <div class="form-input" :class="{'form-input_password': passwordField, 'js--error': isErorr}">
+    <div class="form-input" :class="{'form-input_password': passwordField}">
         <div class="form-input-wrapper">
             <label :for="name">{{ label }}</label>
             <input 
@@ -32,7 +32,7 @@ export default {
         IconShow
     },
 
-    emits: ['update:modelValue'],
+    emits: ['update:modelValue', 'switchType'],
 
     props: {
         modelValue: {
