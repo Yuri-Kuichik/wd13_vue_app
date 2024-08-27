@@ -1,14 +1,16 @@
 <template>
-    <h2>{{ title }}</h2>
+    <h2 class="title">{{ title }}</h2>
 
     <div class="search-wrapper">
         <BaseInput v-model="searchString" placeholder="Search posts..."/>
         <BaseButton class="search-btn" @click="getPosts" text-button="Search" size="l" />
     </div>
 
-    <div v-if="loading" class="loader"></div>
+    <div v-if="loading" class="spinner-wrapper">
+        <VueSpinner size="l"/>
+    </div>
+    
     <div v-else class="posts-list">
-
         <section v-if="postList.length">
             <div v-for="post in postList" :key="'post-id_' + post.id">
                 <PostListItem 
@@ -30,12 +32,14 @@ import { usePostsStore } from '@/stores/posts';
 import BaseInput from './BaseInput.vue';
 import BaseButton from './BaseButton.vue';
 import PostListItem from './PostListItem.vue';
+import VueSpinner from './VueSpinner.vue';
  
 export default {
     components: {
         BaseInput,
         BaseButton,
-        PostListItem
+        PostListItem,
+        VueSpinner
     },
 
     data() {
@@ -45,7 +49,7 @@ export default {
             postList: [],
             title: 'Posts list',
             searchString: '',
-            limitPosts: 5,
+            limitPosts: 15,
             courseGroupId: 12,
             postStore: usePostsStore(),
         }
@@ -64,7 +68,7 @@ export default {
             this.loading = true
 
             try {
-                const response = await this.postStore.getList(this.limitPosts, this.searchString, this.courseGroupId);
+                const response = await this.postStore.getPostList(this.limitPosts, this.searchString);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -82,10 +86,22 @@ export default {
 </script>
 
 <style scoped>
+.title {
+    font-size: 2rem;
+}
+
 .search-wrapper {
     display: flex;
     gap: 1rem;
-    margin: 0.5rem 0 1rem;
+    margin: 0.5rem 0 2rem;
+}
+
+.spinner-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    min-height: 200px;
 }
 
 .post-list-item {

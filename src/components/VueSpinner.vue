@@ -1,6 +1,6 @@
 <template>
     <svg class="vue-spinner" :class="rootClass"  viewBox="0 0 24 24" fill="none">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3a9 9 0 1 0 9 9h2A11 11 0 1 1 12 1v2Z" fill="#ffffff" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3a9 9 0 1 0 9 9h2A11 11 0 1 1 12 1v2Z" fill="#000000" />
     </svg>
 </template>
 

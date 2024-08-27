@@ -1,23 +1,27 @@
+<script setup>
+    import {computed} from 'vue'
+ 
+    const props = defineProps(['type', 'name'])
+    console.log(props.type)
+
+    const model = defineModel()
+
+    function updateModel(val) {
+        model.value = val
+    }
+
+    const typeInput = computed(() => {
+        return props.type || 'text'
+    })
+</script>
+
 <template>
     <input 
-        :type="type" 
-        :value="modelValue"
-        @input="$emit('update:modelValue', $event.target.value)"
+        :type="typeInput" 
+        :value="model"
+        @input="updateModel($event.target.value)"
     >
 </template>
-
-<script>
-    export default {
-        props: {
-            modelValue: {
-                type: String,
-            },
-            type: {
-                default: 'text'
-            }
-        }
-    }
-</script>
 
 <style scoped>
 input {
