@@ -30,8 +30,11 @@
 </template>
 
 <script>
+import { useGlobalStore } from "@/stores/global.js";
+
 import FormInput from "@/components/FormInput.vue";
 import BaseButton from "@/components/BaseButton.vue";
+
 export default {
   components: {BaseButton, FormInput},
 
@@ -41,6 +44,7 @@ export default {
       password: '',
       username: '',
       course_group: '12',
+      globalStore: useGlobalStore()
     }
   },
 
@@ -51,8 +55,22 @@ export default {
   },
 
   methods: {
-    send() {
-      console.log(this.email, this.password, this.username, this.course_group)
+    async send() {
+      console.log({
+        email: this.email,
+        password: this.password,
+        username: this.username,
+        course_group: '12'
+      })
+
+      const data = {
+        email: this.email,
+        password: this.password,
+        username: this.username,
+        course_group: '12'
+      }
+
+      await this.globalStore.registrationUser(data)
     }
   }
 }

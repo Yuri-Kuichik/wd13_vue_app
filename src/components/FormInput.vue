@@ -67,7 +67,8 @@ export default {
         isErorr() {
             return !!this.errorMessage.length
         }
-    }
+    },
+
 }
 
 </script>

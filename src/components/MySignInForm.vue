@@ -38,7 +38,10 @@ export default {
 
   methods: {
     send() {
-      console.log(this.email, this.password)
+      console.log({
+        email: this.email,
+        password: this.password
+      })
     }
   }
 }

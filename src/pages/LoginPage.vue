@@ -31,8 +31,8 @@
 
 <script>
 import BaseLayout from '@/components/BaseLayout.vue';
-import SignInForm from '@/components/SignInForm.vue';
-import RegistrationForm from '@/components/RegistrationForm.vue';
+import SignInForm from '@/components/MySignInForm.vue';
+import RegistrationForm from '@/components/MyRegistrationForm.vue';
 
 export default {
     components: {

@@ -25,6 +25,16 @@ export const useGlobalStore = defineStore('global', {
     setToken(newToken) {
       console.log('set new token')
       this.token = newToken;
+    },
+    async registrationUser(data) {
+      console.log('data: ', data)
+      return await fetch('https://studapi.teachmeskills.by/auth/users/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(data)
+      })
     }
   },
 })
