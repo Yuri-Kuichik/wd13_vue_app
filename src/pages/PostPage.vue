@@ -4,7 +4,7 @@
 
         <div v-else>
             <div class="post-page__header">
-                <h1>{{ postData.title }}</h1> <small>{{ postData.date }}</small>
+                <h1 class="title">{{ postData.title }}</h1> <small>{{ postData.date }}</small>
             </div>
 
             <div class="post-page__body">
@@ -58,6 +58,10 @@ export default {
 </script>
 
 <style scoped>
+.title {
+    font-size: 2rem;
+}
+
 .post-page__header {
     display: flex;
     justify-content: space-between;

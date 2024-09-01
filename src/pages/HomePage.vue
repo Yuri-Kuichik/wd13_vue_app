@@ -1,38 +1,45 @@
 <script>
+import { mapState, mapStores } from 'pinia';
+import { useGlobalStore } from '@/stores/global';
+import { useAuthStore } from '@/stores/auth';
+import { usePostsStore } from '@/stores/posts';
+import { useGroupStore } from '@/stores/group';
+
 import BaseLayout from '@/components/BaseLayout.vue';
 import PostList from '@/components/PostList.vue';
-import VueCalculator from '@/components/VueCalculator.vue';
-import VueCounter from "@/components/VueCounter.vue";
 
 export default {
     components: {
         BaseLayout,
-        PostList,
-        VueCalculator,
-        VueCounter,
+        PostList
     },
 
     provide: {
         message: 'привет!'
     },
 
-    data() {
-        return {
-          customMessage: 'Hello from Home page!!!',
-          searchText: 'search',
-          num: 4,
-          res: false,
-          textButton: 'Click me',
-        }
+    computed: {
+        // обратите внимание, что мы передаем не массив, а просто одно хранилище за другим
+        // каждое хранилище будет доступно как его id + 'Store'
+        ...mapStores(useGlobalStore, useAuthStore, usePostsStore, useGroupStore),
     },
+
+    async created() {
+        // тестируем запросы
+        await this.authStore.getAuthUsersMe()
+        await this.postsStore.getMyPosts()
+    },
+
+    methods: {
+
+    }
 }
 </script>
 
 <template>
     <BaseLayout>
         <PostList />
-        <vue-counter />
-        <vue-calculator />
+
         <!-- <div class="d-flex d-flex_jcc">
             <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
         </div> -->
@@ -40,5 +47,5 @@ export default {
 </template>
 
 <style scoped>
-
+    
 </style>
