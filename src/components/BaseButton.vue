@@ -2,48 +2,37 @@
     <button class="base-batton" :class="rootClass" @click="click">
         <VueSpinner v-if="loading" />
         <span v-else>
-            {{ textButton }}
+            {{ textButtonValue }}
         </span>
     </button>  
 </template>
 
-<script>
-import VueSpinner from './VueSpinner.vue';
+<script setup>
 
-export default {
-    components: {
-        VueSpinner
-    },
+import VueSpinner from "@/components/VueSpinner.vue";
+import {computed} from "vue";
 
-    props: {
-        textButton: {
-            type: String,
-            default: 'Click me'
-        },
-        size: {
-            type: String,
-            default: 'm'
-        },
-        loading: {
-            type: Boolean,
-            default: false
-        }
-    },
+const props = defineProps({
+  textButton: String,
+  size: String,
+  loading: Boolean
+})
 
-    computed: {
-        rootClass() {
-            return {
-                [`base-batton_size--${this.size}`]: true
-            }
-        }
-    },
+const emits = defineEmits(['someClick'])
 
-    methods: {
-        click() {
-            this.$emit('someClick')
-        }
-    }
+function click() {
+  emits('someClick')
 }
+
+const rootClass = computed(() => {
+  return `base-batton_size--${props.size}` || 'base-batton_size--m'
+})
+
+const textButtonValue = computed(() => {
+  return props.textButton || 'Click me'
+})
+
+
 </script>
 
 <style scoped>
