@@ -21,7 +21,7 @@
                 </div>
                 
                 <KeepAlive>
-                    <!-- <component :is="activeComponent"></component> -->
+                    <component :is="activeComponent"></component>
                 </KeepAlive>
                 
             </div>
@@ -31,14 +31,14 @@
 
 <script>
 import BaseLayout from '@/components/BaseLayout.vue';
-// import SignInForm from '@/components/SignInForm.vue';
-// import RegistrationForm from '@/components/RegistrationForm.vue';
+import SignInForm from '@/components/SignInForm.vue';
+import RegistrationForm from '@/components/RegistrationForm.vue';
 
 export default {
     components: {
         BaseLayout,
-        // SignInForm,
-        // RegistrationForm
+        SignInForm,
+        RegistrationForm
     },
 
     data() {
