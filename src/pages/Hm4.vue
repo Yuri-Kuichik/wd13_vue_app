@@ -13,8 +13,8 @@
 
                     <span 
                         class="form-tab d-flex d-flex_jcc"
-                        :class="{'is--active': isActiveTab('RegistrationForm')}"
-                        @click="toggleTab('RegistrationForm')"
+                        :class="{'is--active': isActiveTab('RegistrationFormhm4')}"
+                        @click="toggleTab('RegistrationFormhm4')"
                     >
                         Registragion
                     </span>  
@@ -32,13 +32,13 @@
 <script>
 import BaseLayout from '@/components/BaseLayout.vue';
 import SignInForm from '@/components/SignInForm.vue';
-import RegistrationForm from '@/components/RegistrationForm.vue';
+import RegistrationFormhm4 from '@/components/RegistrationFormhm4.vue';
 
 export default {
     components: {
         BaseLayout,
         SignInForm,
-        RegistrationForm
+        RegistrationFormhm4
     },
 
     data() {
@@ -54,6 +54,7 @@ export default {
         toggleTab(name) {
             this.activeComponent = name
         }
+    
     }
 }
 
