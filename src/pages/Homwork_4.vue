@@ -86,3 +86,5 @@ export default {
         /* border-bottom: solid 1px hsla(160, 100%, 37%, 1); */
         border-bottom: solid 1px rgb(253, 211, 42);
     }
+
+</style>
