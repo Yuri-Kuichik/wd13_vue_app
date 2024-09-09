@@ -32,7 +32,7 @@
 <script>
 import BaseLayout from '@/components/BaseLayout.vue';
 import SignInForm from '@/components/SignInForm.vue';
-import RegistrationFormhm4 from '@/components/RegistrationFormhm4.vue';
+import RegistrationFormhm4 from '@/components/RegistrationFormhm4.vue'
 
 export default {
     components: {
