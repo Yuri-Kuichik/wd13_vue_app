@@ -5,8 +5,8 @@
                 <div class="d-flex">
                     <span 
                         class="form-tab d-flex d-flex_jcc"
-                        :class="{'is--active': isActiveTab('SignInForm')}"
-                        @click="toggleTab('SignInForm')" 
+                        :class="{'is--active': isActiveTab('SignInFormhm4')}"
+                        @click="toggleTab('SignInFormhm4')" 
                     >
                         Sign in
                     </span>
@@ -31,19 +31,20 @@
 
 <script>
 import BaseLayout from '@/components/BaseLayout.vue';
-import SignInForm from '@/components/SignInForm.vue';
-import RegistrationFormhm4 from '@/components/RegistrationFormhm4.vue';
+import SignInForm from '@/components/SignInFormhm4.vue';
+import RegistrationFormhm4 from'@/components/RegistrationFormhm4.vue';
 
 export default {
     components: {
         BaseLayout,
         SignInForm,
-        RegistrationFormhm4
+        RegistrationFormhm4,
+        SignInForm,
     },
 
     data() {
         return {
-            activeComponent: 'SignInForm',
+            activeComponent: 'SignInFormhm4',
         } 
     },
 

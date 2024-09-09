@@ -5,7 +5,7 @@
         <FormInput 
             class="registration-form__input"
             name="username"
-            label="Name"
+            label="username"
             placeholder="Input your email"
             :error-message="emailMsgErr"
             v-model="username"
@@ -41,7 +41,7 @@
             
         />
         <BaseButton 
-            class="registration-form__button"
+            class="registration-formhm4__button"v-bind:disabled="dis"
             text-button="Send" 
             :loading="loading"
             @click.prevent="createUser"
@@ -60,8 +60,10 @@ export default {
     components: {
         FormInput
     },
+    
 
-    data() {
+data() {
+        
         return {
             loading: false,
             authStore: useAuthStore(),
@@ -73,6 +75,7 @@ export default {
             passwordMsgErr: '',
             usernameMsgErr: '',
             passwordFieldType: 'password',
+            dis: null,
         }
     },
 
@@ -82,31 +85,13 @@ export default {
         },
 
         async createUser() {
+                console.log(this.username)
+                console.log(this.email)
+                console.log(this.password) 
+                 console.log(this.course_group) 
+               
+            
 
-        
-
-            const data = {
-                username: this.username,
-                email: this.email,
-                password: this.password,
-                course_group: this.course_group
-            }
-
-            try {
-                const response = await this.authStore.createUser(data)
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const data = await response.json();
-                console.log(data);
-            } catch (error) {
-                console.log(error.message)
-
-            } finally {
-                this.loading = false;
-            }
         },
 
         async signIn(data) {
