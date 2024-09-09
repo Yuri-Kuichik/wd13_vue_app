@@ -31,15 +31,15 @@
             @switchType="switchVisibilityPassword"
             v-model="password"
         
-            />
-            <FormInput
+        />
+        <FormInput
             class="registration-form__input" 
             name="course_group"
             label="course_group"
             placeholder="course_group"
-            password-field
-            :course_group="0"
-            />
+            v-model="course_group"
+            
+        />
         <BaseButton 
             class="registration-form__button"
             text-button="Send" 
