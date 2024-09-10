@@ -31,15 +31,15 @@
 
 <script>
 import BaseLayout from '@/components/BaseLayout.vue';
-import SignInForm from '@/components/SignInFormhm4.vue';
+import SignInFormhm4 from '@/components/SignInFormhm4.vue';
 import RegistrationFormhm4 from'@/components/RegistrationFormhm4.vue';
 
 export default {
     components: {
         BaseLayout,
-        SignInForm,
+        SignInFormhm4,
         RegistrationFormhm4,
-        SignInForm,
+        SignInFormhm4,
     },
 
     data() {
