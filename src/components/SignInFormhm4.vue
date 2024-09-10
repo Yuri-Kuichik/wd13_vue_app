@@ -8,7 +8,7 @@
             label="Email"
             placeholder="Input your email"
             :error-message="emailMsgErr"
-            v-model="email":disabled="dis"
+            v-model="email"
         />
 
         <FormInput
@@ -20,21 +20,21 @@
             :error-message="passwordMsgErr"
             :type="passwordFieldType"
             @switchType="switchVisibilityPassword"
-            v-model="password":disabled="dis"
+            v-model="password"
         />
 
         <BaseButton 
-            class="sign-in-form__button"
+            class="sign-in-formhm4__button"
             text-button="Submit" 
             :loading="loading"
-            @click.prevent="signIn"
+            @click.prevent="sign":disabled="disabled"
         />
     </form>
 
 </template>
 
 <script>
-import { useAuthStore } from '@/stores/auth';
+
 import FormInput from './FormInput.vue';
 import BaseButton from './BaseButton.vue';
 
@@ -46,33 +46,36 @@ export default {
 
     data() {
         return {
-            authStore: useAuthStore(),
+            
             email: '',
             password: '',
             passwordFieldType: 'password',
             emailMsgErr: '',
             passwordMsgErr: '',
             loading: false,   
-           
         }
     },
-    signIn(){
-    console.log(this.username)
-                console.log(this.email)
-                console.log(this.password) 
-                 console.log(this.course_group) 
-},
-                 computed: {
+    
+    
+    computed: {
         isError() {
             return !!(this.emailMsgEr || this.passwordMsgErr)
-        }
+        },
+        disabled(){
+            return !this.email || !this.password;
     },
 
-    methods: {
+   },   methods: {
         switchVisibilityPassword() {
             this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password'
         },
 
+    
+    async sign(){
+
+         console.log(this.email)
+         console.log(this.password) 
+    },      
         checkEmail() {
             const regexp = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
             this.emailMsgErr = regexp.test(this.email) ? '' : 'Enter the correct email'
@@ -117,9 +120,10 @@ export default {
             }
             
         }
-    }
-}
-</script>
+      }   }
+
+
+    </script>
 
 <style scoped>
     .sign-in-form {

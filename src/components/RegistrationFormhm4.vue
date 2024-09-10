@@ -9,7 +9,8 @@
             placeholder="Input your email"
             :error-message="emailMsgErr"
             v-model="username"
-        />
+            
+            />
 
         <FormInput 
             class="registration-form__input"
@@ -18,7 +19,8 @@
             placeholder="Input your email"
             :error-message="emailMsgErr"
             v-model="email"
-        />
+    
+            />
 
         <FormInput
             class="registration-form__input" 
@@ -30,7 +32,7 @@
             :type="passwordFieldType"
             @switchType="switchVisibilityPassword"
             v-model="password"
-        
+    
         />
         <FormInput
             class="registration-form__input" 
@@ -40,11 +42,14 @@
             v-model="course_group"
             
         />
+        
+        
         <BaseButton 
-            class="registration-formhm4__button"v-bind:disabled="dis"
+            class="registration-formhm4__button" 
             text-button="Send" 
             :loading="loading"
-            @click.prevent="createUser"
+             @click.prevent="createUser":disabled="disabled"
+          
         />
 
     
@@ -75,10 +80,15 @@ data() {
             passwordMsgErr: '',
             usernameMsgErr: '',
             passwordFieldType: 'password',
-            dis: null,
+        
         }
     },
-
+    computed: {
+    disabled(){
+    return !this.username || !this.email || !this.password;
+    }},
+    
+    
     methods: {
         switchVisibilityPassword() {
             this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password'
@@ -88,8 +98,8 @@ data() {
                 console.log(this.username)
                 console.log(this.email)
                 console.log(this.password) 
-                 console.log(this.course_group) 
-               
+                console.log(this.course_group) 
+
             
 
         },
