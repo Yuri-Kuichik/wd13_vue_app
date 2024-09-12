@@ -65,7 +65,7 @@ export default {
 
     computed: {
         isErorr() {
-            return !!this.errorMessage.length
+            return !!this.errorMessage
         }
     }
 }

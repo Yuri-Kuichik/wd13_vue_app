@@ -29,6 +29,11 @@ const router = createRouter({
       name: 'login',
       component: () => import('../pages/LoginPage.vue'),
     },
+    {
+      path: '/Hm4',
+      name: 'Hm4',
+      component: () => import('../pages/Hm4.vue'),
+    },
   ]
 });
 
