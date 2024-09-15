@@ -9,7 +9,7 @@
                         @click="toggleTab('SignInForm')" 
                         >
                     >
-                        Sign in
+                        Colculator
                     </span>
                 </div>
                 
