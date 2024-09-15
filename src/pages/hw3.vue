@@ -6,7 +6,8 @@
                     <span 
                         class="form-tab d-flex d-flex_jcc"
                         :class="{'is--active': isActiveTab('VueCalculator')}"
-                        
+                        @click="toggleTab('SignInForm')" 
+                        >
                     >
                         Sign in
                     </span>
@@ -33,7 +34,12 @@ export default {
             activeComponent: 'VueCalculator',
         } 
     },
-}
+    methods: {
+        isActiveTab(name) {
+            return this.activeComponent === name
+        }
+
+}}
 
 </script>
 
