@@ -32,7 +32,7 @@ const router = createRouter({
     {
       path: '/hw3',
       name: 'hw3',
-      component: () => import('../pages/hw3.vue'),
+      component: () => import('../pages/hw__3.vue'),
     },
   ]
 });
