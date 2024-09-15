@@ -6,8 +6,6 @@
                     <span 
                         class="form-tab d-flex d-flex_jcc"
                         :class="{'is--active': isActiveTab('VueCalculator')}"
-                      
-                     
                         Colculator>
                     
                         
