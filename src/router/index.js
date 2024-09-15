@@ -29,7 +29,11 @@ const router = createRouter({
       name: 'login',
       component: () => import('../pages/LoginPage.vue'),
     },
-
+    {
+      path: '/hw3',
+      name: 'hw3',
+      component: () => import('../pages/hw3.vue'),
+    },
   ]
 });
 
